@@ -22,6 +22,7 @@ kotlin {
 
     sourceSets {
         val ktorVersion = "2.3.5"
+        val compose_version = "1.4.1"
 
         val commonMain by getting {
             dependencies {
@@ -35,6 +36,9 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+
+                api("dev.icerock.moko:mvvm-core:0.16.1") // only ViewModel, EventsDispatcher, Dispatchers.UI
+                api("dev.icerock.moko:mvvm-compose:0.16.1") // api mvvm-core, getViewModel for Compose Multiplatfrom
             }
         }
         val androidMain by getting {
